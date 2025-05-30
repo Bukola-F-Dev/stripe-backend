@@ -12,7 +12,8 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 // Middleware
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://bukola-f-dev.github.io'
+  'https://bukola-f-dev.github.io',
+  "https://stripe-backend-f060.onrender.com"
 ];
 
 app.use(cors({
