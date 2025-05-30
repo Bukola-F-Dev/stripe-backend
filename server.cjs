@@ -12,7 +12,7 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 // Middleware
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://bukola-f-deve.github.io'
+  'https://bukola-f-dev.github.io'
 ];
 
 app.use(cors({
@@ -25,6 +25,11 @@ app.use(cors({
   }
 }));
 app.use(express.json()); // Parse JSON requests
+
+app.get('/', (req, res) => {
+  res.send('Stripe backend is live!');
+});
+
 
 // Optional: Send publishable key to frontend
 app.get('/config', (req, res) => {
