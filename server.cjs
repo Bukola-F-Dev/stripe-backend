@@ -16,8 +16,13 @@ const allowedOrigins = [
   "https://stripe-backend-f060.onrender.com"
 ];
 
-app.use(cors());
-
+app.use(cors({
+  origin: [
+    'http://localhost:3000', 
+    'https://bukola-f-dev.github.io'
+  ],
+  methods: ['GET', 'POST'],
+}));
 app.use(express.json()); // Parse JSON requests
 
 app.get('/', (req, res) => {
