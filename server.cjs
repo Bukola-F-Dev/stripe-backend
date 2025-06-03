@@ -9,19 +9,21 @@ const app = express();
 const PORT = process.env.PORT || 4242;
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Middleware
+ 
 const allowedOrigins = [
   'http://localhost:3000',
+  'http://localhost:4242',
   'https://bukola-f-dev.github.io',
-  "https://stripe-backend-f060.onrender.com"
+  "https://stripe-backend-f060.onrender.com",
 ];
 
 app.use(cors({
   origin: [
-    'http://localhost:3000', 
+    'http://localhost:3000',
     'https://bukola-f-dev.github.io'
   ],
   methods: ['GET', 'POST'],
+  credentials: true,
 }));
 app.use(express.json()); // Parse JSON requests
 
